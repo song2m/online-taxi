@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.6.13</version>
+    </parent>
+
+    <groupId>org.onine</groupId>
+    <artifactId>online-taxi</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>online-common</module>
+        <module>online-service-driver</module>
+        <module>online-service-passenger</module>
+        <module>online-service-gateway</module>
+        <module>online-service-captcha</module>
+        <module>online-service-security</module>
+        <module>online-service-order</module>
+        <module>online-api</module>
+        <module>online-service-map</module>
+        <module>online-service-message-push</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.0.5.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2021.0.5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <nacos.discovery>101.200.91.104:8848</nacos.discovery>
+                <nacos.config>101.200.91.104:8848</nacos.config>
+                <nacos.namespace>559c8da1-1e90-489d-b99d-381588f9d639</nacos.namespace>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
