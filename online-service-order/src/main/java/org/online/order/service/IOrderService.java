@@ -14,8 +14,17 @@ public interface IOrderService {
 
     /**
      * 查询是否有正在进行的订单
+     *
      * @param passengerPhone 乘客电话号码
      */
     Boolean isOrdering(String passengerPhone);
+
+
+    /**
+     * 抢订单
+     *
+     * @param phone 司机电话
+     */
+    void grabOrder(String phone);
 
 }
