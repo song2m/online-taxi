@@ -1,5 +1,6 @@
 package org.online.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,6 +15,8 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 public class OrderDTO {
 
+    private Long orderId;
+
     private String passengerPhone;
 
     private String startAddress;
@@ -24,6 +27,7 @@ public class OrderDTO {
 
     private Double planMoney;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime orderTime;
 
 }

@@ -4,18 +4,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @TableName("order_info")
 @Accessors(chain = true)
-public class OrderInfoEntity implements Serializable {
-
-    /**
-     * 订单ID
-     */
-    private Long id;
+public class OrderInfoEntity extends BaseEntity{
 
     /**
      * 乘客ID
@@ -221,9 +215,5 @@ public class OrderInfoEntity implements Serializable {
      * 价格
      */
     private Double price;
-
-    private LocalDateTime gmtCreate;
-
-    private LocalDateTime gmtModified;
 
 }
